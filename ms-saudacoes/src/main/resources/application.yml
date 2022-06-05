@@ -1,0 +1,19 @@
+server:
+  port: 8080
+spring:
+ application:
+  name: servico-saudacoes
+ config:
+    import: optional:configserver:http://localhost:8888/
+ cloud:
+    config:
+      profile: prod
+management:
+ endpoints:
+  web:
+   exposure:
+    include:
+    - '*'
+servico-saudacoes:
+ saudacao: "Olá"
+ default-saudacao: "mundo!"
