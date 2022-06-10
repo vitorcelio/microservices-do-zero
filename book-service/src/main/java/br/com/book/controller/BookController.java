@@ -40,7 +40,7 @@ public class BookController {
 		var cambio = proxy.getCambio(book.get().getPreco(), "USD", moeda);
 		
 		var port = env.getProperty("local.server.port");
-		book.get().setPorta(port);
+		book.get().setPorta("Book port: " + port + "\nCambio port: " + cambio.getPortaExecucao());
 		book.get().setPreco(cambio.getValorConvertido());
 		book.get().setMoeda(moeda);
 		return book.get();

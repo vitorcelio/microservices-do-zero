@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import br.com.book.response.Cambio;
 
-@FeignClient(name = "cambio-service", url = "localhost:8000", path = "cambio")
+@FeignClient(name = "cambio-service")
 public interface CambioProxy {
 
-	@GetMapping("{valor}/{de}/{para}")
+	@GetMapping("/cambio/{valor}/{de}/{para}")
 	public Cambio getCambio(@PathVariable("valor") BigDecimal valor, 
 			@PathVariable("de") String de, @PathVariable("para") String para);
 	
