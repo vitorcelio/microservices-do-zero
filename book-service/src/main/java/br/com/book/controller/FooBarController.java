@@ -7,13 +7,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.resilience4j.bulkhead.annotation.Bulkhead;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
+@Tag(name = "foobar")
 @RestController
 @RequestMapping("book")
 public class FooBarController {
 	
 	private Logger logger = LoggerFactory.getLogger(FooBarController.class);
 	
+	@Operation(summary = "Testa o Resilience4j")
 	@GetMapping("foo")
 	//@Retry(name = "foo", fallbackMethod = "fallbackMethod")
 	//@CircuitBreaker(name = "default", fallbackMethod = "fallbackMethod")

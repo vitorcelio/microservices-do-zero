@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.book.model.Book;
 import br.com.book.proxy.CambioProxy;
 import br.com.book.repository.BookRepository;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
+@Tag(name = "book endpoint")
 @RestController
 @RequestMapping("book")
 public class BookController {
@@ -24,6 +27,7 @@ public class BookController {
 	@Autowired
 	private CambioProxy proxy;
 	
+	@Operation(summary = "Altera o valor do book e detalha ele")
 	@GetMapping("{id}/{moeda}")
 	public Book getBook(@PathVariable("id") Long id, @PathVariable("moeda") String moeda) {
 		
