@@ -12,7 +12,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Tag(name = "foobar")
 @RestController
-@RequestMapping("book")
+@RequestMapping("book-service")
 public class FooBarController {
 	
 	private Logger logger = LoggerFactory.getLogger(FooBarController.class);

@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Lazy;
 
 @Configuration
 public class OpenApiConfiguration {
-	
+
 	@Bean
 	@Lazy(value = false)
 	public List<GroupedOpenApi> apis(SwaggerUiConfigParameters config,
@@ -27,6 +27,7 @@ public class OpenApiConfiguration {
 					.forEach(routeDefinition -> {
 						String name = routeDefinition.getId();
 						config.addGroup(name);
+						
 						GroupedOpenApi
 							.builder()
 							.pathsToMatch("/" + name + "/**")
@@ -36,4 +37,5 @@ public class OpenApiConfiguration {
 		
 		return new ArrayList<>();
 	}
+
 }

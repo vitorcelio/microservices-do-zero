@@ -23,6 +23,7 @@ spring:
         uri: lb://book-service
         predicates:
         - Path=/book-service/**
+        - Path=/book/**
       - id: openapi
         uri: lb://api-gateway
         predicates:
